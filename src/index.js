@@ -38,7 +38,7 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-  const iter = (encoded, decoded) => {
+  const item = (encoded, decoded) => {
         if (encoded === '') return decoded
         const code = encoded.slice(0, 10)
         if (code.includes('*')) decoded += ' '
@@ -51,9 +51,9 @@ function decode(expr) {
             }
             decoded += MORSE_TABLE[morse]
         }
-        return iter(encoded.slice(10), decoded)
+        return item(encoded.slice(10), decoded)
     }
-    return iter(expr, '')
+    return item(expr, '')
 }
 
 module.exports = {
